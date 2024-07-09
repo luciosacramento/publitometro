@@ -34,72 +34,20 @@ export class HomePage implements OnInit {
   }
 
   private getPage() {
-    const value = 21; // O valor que você deseja passar para o método getPage
-    this.homeService.getPage(value).subscribe(
-      {
-        next:  (data:any) => {
-          this.pageData = data;
-         // console.log('Dados obtidos:', this.pageData);
-         },
-        error:  (erro) => {
-          console.error(erro)
-        }
-      }
-    )
+    
   }
 
   private getConfig() {
   
-    this.homeService.getConfig().subscribe(
-      {
-        next:  (data:any) => {
-          this.configData = data; 
-         // console.log('Dados obtidos:', this.configData);
-         },
-        error:  (erro) => {
-          console.error(erro)
-        }
-      }
-    );
+   
   }
 
   public getLoja() {
 
-    if (this.searchTerm.length >= 3 || this.searchTerm.length == 0) {
-      console.log('Buscando loja:', this.searchTerm);
-      this.homeService.getLoja(this.searchTerm).subscribe(
-        {
-          next:  (data:any) => {
-            this.lojaList = data;
-            console.log('Dados obtidos:', this.lojaList);
-           },
-          error:  (erro) => {
-            console.error(erro)
-          }
-        }
-      )
-    }
+   
 
   }
 
-  public sendMail() {
-
-    if(this.formGroup.valid){
-      this.homeService.sendMail(this.formGroup.value).subscribe(
-        {
-          next:  (data:any) => {
-            //console.log('Dados obtidos:', data.message);
-            this.util.exibirSucesso(data.message);
-            
-           },
-          error:  (erro) => {
-            console.error(erro)
-          }
-        }
-      );
-    }else{
-      console.log('Formulário inválido');
-    }
-  }
+ 
   
 }
